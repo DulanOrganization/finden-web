@@ -5,14 +5,14 @@
     <script>
       // This script extracts the code from the query parameters
       (function () {
-        print('Window location');
-        print(window.location.search);
+        console.log('Window location');
+        console.log(window.location.search);
         // Parse query parameters
         const params = new URLSearchParams(window.location.search);
         const authCode = params.get("code");
 
-        print('Window location auth code');
-        print(authCode);
+        console.log('Window location auth code');
+        console.log(authCode);
 
         // Pass the authorization code back to the Flutter app
         if (authCode) {
