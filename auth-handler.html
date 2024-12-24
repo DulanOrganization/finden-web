@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OAuth Handler</title>
+    <script>
+      // This script extracts the code from the query parameters
+      (function () {
+        print('Window location');
+        print(window.location.search);
+        // Parse query parameters
+        const params = new URLSearchParams(window.location.search);
+        const authCode = params.get("code");
+
+        print('Window location auth code');
+        print(authCode);
+
+        // Pass the authorization code back to the Flutter app
+        if (authCode) {
+          // Communicate with the parent window (Flutter app)
+          window.opener.postMessage({ code: authCode }, "*");
+        }
+
+        // Close the popup automatically
+        window.close();
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Authorizing...</p>
+  </body>
+</html>
