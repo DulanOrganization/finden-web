@@ -18,7 +18,7 @@
         if (authCode) {
           // Communicate with the parent window (Flutter app)
           window.opener.postMessage({ code: authCode }, "*");
-        } else if (accessToken || idToken) {
+        } else {
             console.log('Window location hash');
             console.log(window.location.hash);
 
