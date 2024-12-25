@@ -10,23 +10,33 @@
         // Parse query parameters
         const params = new URLSearchParams(window.location.search);
         const authCode = params.get("code");
-        const accessToken = params.get("access_token");
-        const idToken = params.get("id_token");
 
         console.log('Window location auth code');
         console.log(authCode);
-        console.log('Window location access token');
-        console.log(accessToken);
-        console.log('Window location id token');
-        console.log(idToken);
 
         // Pass the authorization code back to the Flutter app
         if (authCode) {
           // Communicate with the parent window (Flutter app)
           window.opener.postMessage({ code: authCode }, "*");
         } else if (accessToken || idToken) {
-          // Communicate with the parent window (Flutter app)
-          window.opener.postMessage({ access_token: accessToken, id_token: idToken }, "*");
+            console.log('Window location hash');
+            console.log(window.location.hash);
+
+            // Parse fragment parameters (after the # in the URL)
+            const fragment = new URLSearchParams(window.location.hash.substring(1)); // Remove the # before parsing
+            const accessToken = fragment.get("access_token");
+            const idToken = fragment.get("id_token");
+
+            console.log('Access Token:', accessToken);
+            console.log('ID Token:', idToken);
+
+            // Pass the tokens back to the Flutter app
+            if (accessToken || idToken) {
+                window.opener.postMessage(
+                    { access_token: accessToken, id_token: idToken },
+                    "*"
+                );
+            }
         }
 
         // Close the popup automatically
