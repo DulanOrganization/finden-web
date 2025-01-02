@@ -1,6 +1,6 @@
 {
-    "name": "octosphere_desktop",
-    "short_name": "octosphere_desktop",
+    "name": "finden",
+    "short_name": "finden",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
