@@ -1,50 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>OAuth Handler</title>
-    <script>
-      // This script extracts the code from the query parameters
-      (function () {
-        console.log('Window location');
-        console.log(window.location.search);
-        // Parse query parameters
-        const params = new URLSearchParams(window.location.search);
-        const authCode = params.get("code");
 
-        console.log('Window location auth code');
-        console.log(authCode);
+<head>
+  <title>OAuth Handler</title>
+  <script>
+    // This script extracts the code from the query parameters
+    (function () {
+      console.log('Window location');
+      console.log(window.location.search);
+      // Parse query parameters
+      const params = new URLSearchParams(window.location.search);
+      const authCode = params.get("code");
 
-        // Pass the authorization code back to the Flutter app
-        if (authCode) {
-          // Communicate with the parent window (Flutter app)
-          window.opener.postMessage({ code: authCode }, "*");
-        } else {
-            console.log('Window location hash');
-            console.log(window.location.hash);
+      console.log('Window location auth code');
+      console.log(authCode);
 
-            // Parse fragment parameters (after the # in the URL)
-            const fragment = new URLSearchParams(window.location.hash.substring(1)); // Remove the # before parsing
-            const accessToken = fragment.get("access_token");
-            const idToken = fragment.get("id_token");
+      // Pass the authorization code back to the Flutter app
+      if (authCode) {
+        // Communicate with the parent window (Flutter app)
+        window.opener.postMessage({ source: 'finden_auth', code: authCode }, "*");
+      } else {
+        console.log('Window location hash');
+        console.log(window.location.hash);
 
-            console.log('Access Token:', accessToken);
-            console.log('ID Token:', idToken);
+        // Parse fragment parameters (after the # in the URL)
+        const fragment = new URLSearchParams(window.location.hash.substring(1)); // Remove the # before parsing
+        const accessToken = fragment.get("access_token");
+        const idToken = fragment.get("id_token");
 
-            // Pass the tokens back to the Flutter app
-            if (accessToken || idToken) {
-                window.opener.postMessage(
-                    { access_token: accessToken, id_token: idToken },
-                    "*"
-                );
-            }
+        console.log('Access Token:', accessToken);
+        console.log('ID Token:', idToken);
+
+        // Pass the tokens back to the Flutter app
+        if (accessToken || idToken) {
+          window.opener.postMessage(
+            { source: 'finden_auth', access_token: accessToken, id_token: idToken },
+            "*"
+          );
         }
+      }
 
-        // Close the popup automatically
-        window.close();
-      })();
-    </script>
-  </head>
-  <body>
-    <p>Authorizing...</p>
-  </body>
+      // Close the popup automatically
+      window.close();
+    })();
+  </script>
+</head>
+
+<body>
+  <p>Authorizing...</p>
+</body>
+
 </html>
