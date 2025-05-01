@@ -1,153 +1,228 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <base href="./" />
 
-<head>
-  <base href="./">
+    <meta charset="UTF-8" />
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+    <meta name="description" content="Finden is Your Personal Data Assistant" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Finden" />
+    <link
+      href="icons/apple-icon-57x57.png"
+      rel="apple-touch-icon"
+      sizes="57x57" />
+    <link
+      href="icons/apple-icon-60x60.png"
+      rel="apple-touch-icon"
+      sizes="60x60" />
+    <link
+      href="icons/apple-icon-72x72.png"
+      rel="apple-touch-icon"
+      sizes="72x72" />
+    <link
+      href="icons/apple-icon-76x76.png"
+      rel="apple-touch-icon"
+      sizes="76x76" />
+    <link
+      href="icons/apple-icon-114x114.png"
+      rel="apple-touch-icon"
+      sizes="114x114" />
+    <link
+      href="icons/apple-icon-120x120.png"
+      rel="apple-touch-icon"
+      sizes="120x120" />
+    <link
+      href="icons/apple-icon-144x144.png"
+      rel="apple-touch-icon"
+      sizes="144x144" />
+    <link
+      href="icons/apple-icon-152x152.png"
+      rel="apple-touch-icon"
+      sizes="152x152" />
+    <link
+      href="icons/apple-icon-180x180.png"
+      rel="apple-touch-icon"
+      sizes="180x180" />
+    <link
+      href="icons/android-icon-192x192.png"
+      rel="icon"
+      sizes="192x192"
+      type="image/png" />
+    <link
+      href="icons/favicon-32x32.png"
+      rel="icon"
+      sizes="32x32"
+      type="image/png" />
+    <link
+      href="icons/favicon-96x96.png"
+      rel="icon"
+      sizes="96x96"
+      type="image/png" />
+    <link
+      href="icons/favicon-16x16.png"
+      rel="icon"
+      sizes="16x16"
+      type="image/png" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="icons/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
 
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="Finden is Your Personal Data Assistant">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Finden">
-  <link href="icons/apple-icon-57x57.png" rel="apple-touch-icon" sizes="57x57">
-  <link href="icons/apple-icon-60x60.png" rel="apple-touch-icon" sizes="60x60">
-  <link href="icons/apple-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
-  <link href="icons/apple-icon-76x76.png" rel="apple-touch-icon" sizes="76x76">
-  <link href="icons/apple-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
-  <link href="icons/apple-icon-120x120.png" rel="apple-touch-icon" sizes="120x120">
-  <link href="icons/apple-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
-  <link href="icons/apple-icon-152x152.png" rel="apple-touch-icon" sizes="152x152">
-  <link href="icons/apple-icon-180x180.png" rel="apple-touch-icon" sizes="180x180">
-  <link href="icons/android-icon-192x192.png" rel="icon" sizes="192x192" type="image/png">
-  <link href="icons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
-  <link href="icons/favicon-96x96.png" rel="icon" sizes="96x96" type="image/png">
-  <link href="icons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
-  <link rel="manifest" href="manifest.json">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="icons/ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff">
+    <meta
+      name="google-signin-client_id"
+      content="209124019418-bfgknsn954p87026a55b5kggln1o5rpr.apps.googleusercontent.com" />
 
-  <meta name="google-signin-client_id"
-    content="209124019418-bfgknsn954p87026a55b5kggln1o5rpr.apps.googleusercontent.com">
+    <title>Finden</title>
 
-  <title>Finden</title>
+    <script>
+      var serviceWorkerVersion = ""4244653543"";
+    </script>
+    <!-- This script adds the flutter initialization JS code -->
+    <script src="flutter.js" defer=""></script>
+    <style id="splash-screen-style">
+      html {
+        height: 100%;
+      }
 
-  <script>
-    var serviceWorkerVersion = '"3820300623"';
-  </script>
-  <!-- This script adds the flutter initialization JS code -->
-  <script src="flutter.js" defer=""></script>
-  <style id="splash-screen-style">
-    html {
-      height: 100%
-    }
+      body {
+        margin: 0;
+        min-height: 100%;
+        background-color: #000000;
+        background-size: 100% 100%;
+      }
 
-    body {
-      margin: 0;
-      min-height: 100%;
-      background-color: #000000;
-      background-size: 100% 100%;
-    }
+      .center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
 
-    .center {
-      margin: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-    }
+      .contain {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
 
-    .contain {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
+      .stretch {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
 
-    .stretch {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
+      .cover {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
 
-    .cover {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+      .bottom {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        -ms-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+      }
 
-    .bottom {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      -ms-transform: translate(-50%, 0);
-      transform: translate(-50%, 0);
-    }
+      .bottomLeft {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
 
-    .bottomLeft {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-    }
+      .bottomRight {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+    </style>
 
-    .bottomRight {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-    }
-  </style>
-  <script id="splash-screen-script">
-    function removeSplashFromWeb() {
-      document.getElementById("splash")?.remove();
-      document.getElementById("splash-branding")?.remove();
-      document.body.style.background = "transparent";
-    }
-  </script>
-  <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
-</head>
+    <script id="splash-screen-script">
+      function removeSplashFromWeb() {
+        document.getElementById("splash")?.remove();
+        document.getElementById("splash-branding")?.remove();
+        document.body.style.background = "transparent";
+      }
+    </script>
 
-<body>
-  <!-- Google tag (gtag.js) --> <amp-analytics type="gtag" data-credentials="include">
-    <script
-      type="application/json"> { "vars": { "gtag_id": "AW-16907505979", "config": { "AW-16907505979": { "groups": "default" } } }, "triggers": { } } </script>
-  </amp-analytics>
-  <picture id="splash">
-    <source
-      srcset="splash/img/light-1x.png 1x, splash/img/light-2x.png 2x, splash/img/light-3x.png 3x, splash/img/light-4x.png 4x"
-      media="(prefers-color-scheme: light)">
-    <source
-      srcset="splash/img/dark-1x.png 1x, splash/img/dark-2x.png 2x, splash/img/dark-3x.png 3x, splash/img/dark-4x.png 4x"
-      media="(prefers-color-scheme: dark)">
-    <img class="center" aria-hidden="true" src="splash/img/light-1x.png" alt="">
-  </picture>
-  <script async src="flutter_bootstrap.js"></script>
-  <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-analytics.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TN8XLMTX");
+    </script>
+    <!-- End Google Tag Manager -->
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TN8XLMTX"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <picture id="splash">
+      <source
+        srcset="
+          splash/img/light-1x.png 1x,
+          splash/img/light-2x.png 2x,
+          splash/img/light-3x.png 3x,
+          splash/img/light-4x.png 4x
+        "
+        media="(prefers-color-scheme: light)" />
+      <source
+        srcset="
+          splash/img/dark-1x.png 1x,
+          splash/img/dark-2x.png 2x,
+          splash/img/dark-3x.png 3x,
+          splash/img/dark-4x.png 4x
+        "
+        media="(prefers-color-scheme: dark)" />
+      <img
+        class="center"
+        aria-hidden="true"
+        src="splash/img/light-1x.png"
+        alt="" />
+    </picture>
+    <script async src="flutter_bootstrap.js"></script>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
 
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyAgJirIFXmSq0sVtufM3wDp9PPRd-So1nM",
-      authDomain: "godseye-2023.firebaseapp.com",
-      databaseURL: "https://godseye-2023-default-rtdb.firebaseio.com",
-      projectId: "godseye-2023",
-      storageBucket: "godseye-2023.appspot.com",
-      messagingSenderId: "209124019418",
-      appId: "1:209124019418:web:57fc3a7e5cc81d0a36a9e3",
-      measurementId: "G-5DW9Y7G938"
-    };
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyAgJirIFXmSq0sVtufM3wDp9PPRd-So1nM",
+        authDomain: "godseye-2023.firebaseapp.com",
+        databaseURL: "https://godseye-2023-default-rtdb.firebaseio.com",
+        projectId: "godseye-2023",
+        storageBucket: "godseye-2023.appspot.com",
+        messagingSenderId: "209124019418",
+        appId: "1:209124019418:web:57fc3a7e5cc81d0a36a9e3",
+        measurementId: "G-5DW9Y7G938",
+      };
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-  </script>
-</body>
-
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
+  </body>
 </html>
